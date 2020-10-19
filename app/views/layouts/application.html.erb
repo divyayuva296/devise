@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dev</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+    <%# byebug %>
+      signed out <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+      <% else %>
+      Sign in <%= link_to 'login',new_user_session_path %>
+      Sign Up <%= link_to 'sign_up', new_user_registration_path %>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
