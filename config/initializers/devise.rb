@@ -310,6 +310,25 @@ Devise.setup do |config|
   # config.sign_in_after_change_password = true
   config.authentication_keys = [ :login ]
   config.scoped_views = true
-#   config.reset_password_keys = [ :username ]
-# config.confirmation_keys = [ :username ]
+
+   
+  config.reset_password_within = 6.hours
+
+  # Defines which strategy will be used to lock an account.
+  config.lock_strategy = :failed_attempts
+
+  # Defines which key will be used when locking and unlocking an account
+  config.unlock_keys = [ :time ]
+
+  # Defines which strategy will be used to unlock an account.
+  # :time  = Re-enables login after a certain amount of time (see :unlock_in below)
+  config.unlock_strategy = :time
+
+  # Number of authentication tries before locking an account if lock_strategy
+  # is failed attempts.
+  config.maximum_attempts = 3
+
+  # Time interval to unlock the account if :time is enabled as unlock_strategy.
+  config.unlock_in = 15.minutes
+
 end

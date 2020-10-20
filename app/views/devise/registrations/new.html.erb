@@ -11,6 +11,11 @@
     <%= f.label :username %><br />
     <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
   </div>
+  <div class = "field">
+    <%= f.label :mobile_no %><br />
+    <%= f.telephone_field :mobile_no , autofocus: true,autocomplete: 'mobile_no' %>
+  </div>
+
 
   <div class="field">
     <%= f.label :password %>
@@ -23,6 +28,11 @@
   <div class="field">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+  <div class = "field">
+    <%= f.label :role %><br/ >
+    <%#= f.select :role , @user.roles %>
+    <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
   </div>
 
   <div class="actions">
