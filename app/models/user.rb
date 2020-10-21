@@ -1,14 +1,20 @@
 class User < ApplicationRecord
+	require 'nexmo'
+
+	has_many :posts
 	validates :username ,presence: true,  uniqueness: { case_sensitive: false }
-	 validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
-	 validate :validate_username
+	 # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+	 # validate :validate_username
 	 validates :mobile_no, length: {maximum: 10}
 	 after_initialize :create_login, if: :new_record?
-	enum role: {admin: 0 , user: 1}
+	# enum role: {admin: 0 , user: 1}
+	enum role: [:user,:admin]
 	 after_initialize :set_default_role, :if => :new_record?
 
 	def set_default_role
+
   	self.role ||= :user
+  	# byebug
 	end
 
 	 
@@ -20,11 +26,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,:lockable
-  # def login
+  def login=(login)
+    @login = login
+  end
+  def login
 
-  # 	@login || self.username || self.email
-  # 	binding.pry
-  # end
+  	@login || self.username || self.email
+  	
+  end
  
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

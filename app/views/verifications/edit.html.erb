@@ -1,0 +1,9 @@
+<%= form_with url: verification_path(id: params[:id]), method: :put do |f|%>
+	<div>
+		<%= f.label :code %><br />
+		<%= f.text_field :code %>
+	</div>
+	<div>
+		<%= f.submit 'Verify' %>
+	</div>
+<% end %>

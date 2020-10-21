@@ -56,3 +56,7 @@ gem 'devise'
 gem 'pry', '~> 0.13.1'
 
 gem 'letter_opener', '~> 1.7'
+# gem  'send_otp'
+# gem 'sendotp', '~> 0.1.0'
+gem 'nexmo'
+gem 'dotenv-rails', groups: [:development, :test]
