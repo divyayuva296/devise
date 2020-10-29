@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
 	end
 	def start_verification_twillo
 		
-		Authy.api_key  = 'Euq7YCkbyIoDNlzMrvon1cs7hg0ZKKpP'
+		Authy.api_key  = 'api key'
 		
     	Authy.api_uri = 'https://api.authy.com'
     	# byebug
@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
 
 	
 	def start_verification
-		client = Nexmo::Client.new(api_key: "4ddb8ed8",api_secret: "rcCfReebOaqs9urN")
+		client = Nexmo::Client.new(api_key: "api_key",api_secret: "api_secret")
 		response = client.verify.request(
 			number: current_user.mobile_no,
 			country: 'IN',
