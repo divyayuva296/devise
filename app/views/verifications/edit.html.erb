@@ -1,9 +1,19 @@
-<%= form_with url: verification_path(id: params[:id]), method: :put do |f|%>
+<%#= form_with url: verification_path(id: params[:id]), method: :put do |f|%>
+	<!-- <div> -->
+		<%#= f.label :code %><br />
+		<%#= f.text_field :code %>
+	<!-- </div> -->
+	<!-- <div># -->
+		<%#= f.submit 'Verify' %>
+	<!-- </div> -->
+<%# end %>
+
+<%= form_with url: verification_path(id: params[:id]), method: :put do |f| %>
 	<div>
 		<%= f.label :code %><br />
 		<%= f.text_field :code %>
 	</div>
-	<div>
+	<div>#
 		<%= f.submit 'Verify' %>
 	</div>
 <% end %>

@@ -12,7 +12,13 @@
     <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
   </div>
   <div class = "field">
-    <%= f.label :mobile_no %><br />
+    <%= f.label :image %><br />
+    <%= f.file_field :avatar%>
+  </div>
+  <div class = "field">
+    <%=f.label :country%>
+    <%= f.select :country,User.countries.keys.to_a %>
+    <%= f.label :mobile_no %>
     <%= f.telephone_field :mobile_no , autofocus: true,autocomplete: 'mobile_no' %>
   </div>
 

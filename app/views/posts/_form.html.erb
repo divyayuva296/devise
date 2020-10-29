@@ -1,0 +1,66 @@
+
+
+<% current_user.present? %>
+<%= form_with(model: [@post] , local: true) do |form| %>
+<%# byebug %>
+<p>
+	<%= form.label :title %>
+	<%= form.text_field :title %>
+</p>
+<p>
+	<%= form.label :image %>
+	<%= form.file_field :image %>
+	<%#= form.text_field :remote_image_url %>
+	<%= form.hidden_field :avatar_cache %>
+	<%#= form.check_box :remove_image %>
+	
+</p>
+<p>
+	<%= form.label :multiple_mages %>
+	<%= form.file_field :images, multiple: true %>
+	<%= form.hidden_field :avatar_cache %>
+	<%#= form.check_box :remove_image %>
+</p>
+<p>
+	<%= form.label :avatar %>
+	<%= form.file_field :avatar %>
+</p>
+<p>
+	<%= form.label :photo %>
+	<%= form.file_field :photo %>
+</p>
+<p>
+	<%= form.label :multiple_photo, class: "label" %>
+	<%= form.file_field :photos ,multiple: true%>
+</p>
+<div class = "mb-6">
+	<%= form.label :feature_image %>
+	<div class = "dropzone dropzone-default dz-clickable" data-controller = "dropzone" data-dropzone-max-file-size = "2" data-dropzone-max-files = "1">
+		<%= form.file_field :feature_image, direct_upload: true , data: {target: 'dropzone.input'} %>
+		<div class = "dropzone-msg dz-message needsclick text-gray-600">
+			<h3 class = "dropzone-msg-title"> Drag here to upload or click here to browse</h3>
+			<span class = "dropzone-msg-desc text-sm">2 MB file size maximum. Allowed file types png, jpg</span>
+		</div>
+	</div>
+</div>
+
+<div class = "mb-6">
+	<%= form.label :feature_images %>
+	<div class = "dropzone dropzone-default dz-clickable" data-controller = "dropzone" data-dropzone-max-file-size = "3" data-dropzone-max-files = "4">
+		<%= form.file_field :feature_images, direct_upload: true ,multiple: true, data: {target: 'dropzone.input'} %>
+		<div class = "dropzone-msg dz-message needsclick text-gray-600">
+			<h3 class = "dropzone-msg-title"> Drag here to upload or click here to browse</h3>
+			<span class = "dropzone-msg-desc text-sm">2 MB file size maximum. Allowed file types png, jpg</span>
+		</div>
+	</div>
+</div>
+
+<p>
+	<%= form.hidden_field :user_id %>
+</p>
+<p>
+	<%= form.submit %>
+</p>
+<% end %>
+
+

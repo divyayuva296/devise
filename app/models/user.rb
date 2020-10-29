@@ -1,11 +1,17 @@
 class User < ApplicationRecord
+  require 'carrierwave/orm/activerecord'
+  mount_uploader :avatar, AvatarUploader
 	require 'nexmo'
-
-	has_many :posts
+      scope :user_scope, -> {where(User.roles == "admin")}
+	# require 'authy'
+  # before_create :verification_twillo
+  # @countries  = { "United States" => "+1", "Switzerland" => "+41", "India" => "+91" }
+	enum country: {"+1" => "United States","+91" => "India"}
+  has_many :posts
 	validates :username ,presence: true,  uniqueness: { case_sensitive: false }
 	 # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
 	 # validate :validate_username
-	 validates :mobile_no, length: {maximum: 10}
+	 validates :mobile_no, length: {maximum: 13}
 	 after_initialize :create_login, if: :new_record?
 	# enum role: {admin: 0 , user: 1}
 	enum role: [:user,:admin]
@@ -25,7 +31,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable,:lockable
+         :recoverable, :rememberable, :validatable, :lockable,:confirmable
   def login=(login)
     @login = login
   end
@@ -75,5 +81,17 @@ class User < ApplicationRecord
 	 def welcome_email
   	UserMailer.welcome_email(self).deliver
   	 # UserMailer.with(self).welcome_email.deliver_now
+  end
+  def verification_twillo
+    Authy.api_key = 'a645788536e0d20524620a3f7c8638da'
+    Authy.api_uri = 'https://api.authy.com'
+    authy = Authy::API.register_user(email: self.email,mobile_no: self.mobile_no )
+    byebug
+    if authy.ok?
+      puts authy.id
+    else
+      puts authy.errors
+    end
+
   end
 end

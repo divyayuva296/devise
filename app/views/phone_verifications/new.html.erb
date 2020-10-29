@@ -1,0 +1,28 @@
+<h1> Verify your phone number</h1>
+
+<%= form_with url: new_phone_verification_path, method: :post do |f|%>
+	<% if @response %>
+		<% @response.errors.each do |key,message| %>
+			<p><%= message %></p>
+		<% end %>
+	<% end %>
+	<div>
+		<%#= f.label :authy_countries,"Country code" %><br />
+		<%#= f.select  :authy_countries %>
+	</div>
+	<div >
+		<%= f.label :mobile_no %>
+		<%= f.telephone_field :mobile_no %>
+	</div>
+	<div>
+		<p>Verification method</p>
+		<%= f.label :method_sms,"SMS" %>
+		<%= f.radio_button :method,"sms" %>
+		<%= f.label :method_call,"Call"%>
+		<%= f.radio_button :method,"call" %>
+	</div>
+	
+	<div>
+		<%= f.submit 'Verify' %>
+	</div>
+<% end %>

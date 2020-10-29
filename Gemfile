@@ -60,3 +60,15 @@ gem 'letter_opener', '~> 1.7'
 # gem 'sendotp', '~> 0.1.0'
 gem 'nexmo'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'authy'
+gem 'envyable'
+gem 'twilio-ruby'
+#show callbacks list
+gem 'cb_list', group: :development
+#image uploads
+gem 'carrierwave', '~> 2.1'
+gem 'mini_magick', '~> 4.10', '>= 4.10.1'
+# gem 'rmagick4j', '~> 0.3.8'
+gem 'paperclip', '~> 6.1'
+#drag and drop
+gem 'dropzonejs-rails'

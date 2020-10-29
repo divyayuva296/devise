@@ -1,0 +1,15 @@
+<h1> Challenge</h1>
+<%= form_with url: verify_phone_verifications_path, method: :post do |f| %>
+	<% if @response %>
+		<% @response.errors.each do |key,value| %>
+			<p><% message %></p>
+		<% end %>
+	<% end %>
+	<div>
+		<%= f.label :code %>
+		<%= f.text_field :code %>
+	</div>
+	<div>
+		<%= f.submit "verify" %>
+	</div>
+<% end %>

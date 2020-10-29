@@ -1,0 +1,77 @@
+<%= link_to 'new post' , new_post_path %><br>
+
+<%#= link_to 'logout', destroy_user_session_path,method: :delete %><br>
+
+
+<% @posts.each do |post| %>
+	<p>
+		<div>
+			<strong>Title:</strong>
+			<%= post.title %><br>
+		</div>
+
+		<div>
+			<strong>Image</strong><br>
+			<%#= image_tag(post.image_url) if post.image? %>
+			<%= image_tag post.image_url(:thumb) if post.image? %>
+		</div>
+		
+		<div>
+			<strong>Multiple_image</strong><br>
+			<% post.images.each do |image,index| %>
+		
+		  	<%= image_tag(image.url)%>
+		  	<%#= link_to 'delete image',delete_image_post_path(post,index),method: :delete %>
+		  	<%# byebug %>
+			<% end %>
+		</div>
+
+		<div>
+			<strong>Avatar image</strong><br>
+			<%= image_tag(post.avatar.url) %>
+		</div>
+
+		<div>
+			<stong>Active storage</stong><br>
+			<% if post.photo.attached? %>
+		<%#binding.pry%>
+				<%# post.image.each do |photo| %>
+		 			<%=image_tag  url_for(post.photo) %>
+		 			
+		 			<%#= link_to 'Delete', delete_photo_post_path(post.id),method: :delete,data: {confirm: 'Are you sure?'} %>
+
+		 		
+		 		<%# end %>
+		 	<% end %>
+		</div>
+
+		<div>
+			<strong>Active storage multiple photos</strong><br>
+			<% if post.photos.attached? %>
+
+				<% post.photos.each do |photo|  %>
+				 <%=image_tag photo %>
+					
+				<% end %>
+			<% end %>
+		</div>
+		<div >
+			<strong>Drag and drop </strong><br>
+			<%= image_tag (post.feature_image) if post.feature_image.present? %>
+		</div>
+		<div>
+			<strong>Drag and drop multiple</strong>
+			<% post.feature_images.each do |feature_image| %>
+				<%= image_tag feature_image %>
+			<% end %>
+		</div>
+
+		<div>
+			<%= link_to 'show', post_path(post) %>
+			<%= link_to 'edit', edit_post_path(post) %>
+			<%= link_to 'destroy',post_path(post), method: :delete %>
+		</div>
+	<p>
+	
+<% end %>
+

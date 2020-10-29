@@ -1,0 +1,60 @@
+<p>
+	<p>
+		<strong>Title:</strong>
+		<%= @post.title %><br/>
+	</p>
+	<p>
+		<strong>image:</strong><br>
+		<%= image_tag(@post.image_url) if @post.image %><br>
+	</p>
+	<p>
+		<strong>multiple images</strong><br>
+		<% @post.images.each_with_index do |image,index| %>
+			<%= image_tag(image.url) %>
+		 	<%= link_to 'delete image',delete_image_post_path(@post,index),method: :delete %>
+		<% end %>
+	</p>
+	<p>
+		<strong>Avatar</strong><br>
+		<%= image_tag @post.avatar.url %>
+		<%= link_to 'delete', delete_avatar_post_path(@post),method: :delete,data: {confirm: 'Are you sure?'} %>
+	</p>
+	<p>
+		<strong>photo</strong><br>
+		<% if @post.photo.attached? %>
+			
+				<%= image_tag url_for(@post.photo) %>
+			<%# binding.pry %>
+				<%= link_to 'delete', delete_photo_post_url(@post),method: :delete, data: {confirm: 'Are you sure?'} %>
+			
+		<% end %>
+	</p>
+	<p>
+		<strong>active storage photos</strong><br>
+		<% if @post.photos.attached? %>
+
+			<% @post.photos.each do |photo| %>
+				<%= image_tag rails_blob_path(photo) %>
+			
+				<%= link_to 'remove', delete_photo_post_url(@post),method: :delete,data: {confirm: 'Are you sure?'} %>
+			<% end %>
+
+	
+		<% end %>
+	</p>
+	<p>
+		<strong>drag and drop</strong><br>
+		<%# @post.feature_image.attached? %>
+			<%= image_tag @post.feature_image %>
+		<%# end  %>
+	</p>
+
+	<p>
+		<strong>Drag And Drop</strong><br>
+		<% @post.feature_images.each do |feature_image| %>
+			<%= image_tag feature_image %>
+		<% end %>
+	</p>
+
+</p>
+<%= link_to 'back', posts_path %>

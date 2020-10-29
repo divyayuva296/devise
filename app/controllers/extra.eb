@@ -1,0 +1,15 @@
+# account_sid = 'AC2bf2bc0ffb5a94eae4543eb3db199370'
+		# auth_token = 'a645788536e0d20524620a3f7c8638da'
+		
+		# client = Twilio::REST::Client.new(account_sid,auth_token)
+		# service = client.verify.services.create(friendly_name: "Devise",code_length: '4')
+
+		
+		# puts service.sid
+		# service_id = service.sid
+	 # 	country = current_user.country 
+	 # 	phone = current_user.mobile_no
+	 # 	mobile_no = country + phone
+		# byebug
+		# verification = client.verify.services(service_id).verifications.create(to: current_user.mobile_no,channel: "sms")
+		# puts verification.status
