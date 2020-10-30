@@ -15,4 +15,17 @@
  *= require_self
 
  */
+ @tailwind base;
+ @tailwind components;
+
 @import "posts";
+@import 'bootstrap/dist/css/bootstrap';
+@import "welcome";
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/*// You can add your own custom components/styles here*/
+
+@import "tailwindcss/utilities";
+@tailwind utilities;

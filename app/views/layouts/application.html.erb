@@ -10,13 +10,18 @@
   </head>
 
   <body>
+    <%= render 'layouts/header' %>
     <% if user_signed_in? %>
     <%# byebug %>
-      signed out <%= link_to 'logout', destroy_user_session_path, method: :delete %><br>
+      <!-- signed out <%#= link_to 'logout', destroy_user_session_path, method: :delete %><br> -->
       <% else %>
       Sign in <%= link_to 'login',new_user_session_path %>
       Sign Up <%= link_to 'sign_up', new_user_registration_path %>
     <% end %>
-    <%= yield %>
+
+    <div class="container-fluid" >
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer'%>
   </body>
 </html>

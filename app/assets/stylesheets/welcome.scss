@@ -1,3 +1,154 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+ 
+ .form{
+ 	background-color: #4e838c;
+ 	margin-top: 10px;
+ }
+ .control-label{
+  	font-size: 20px;
+ }
+
+ 
+
+ .m-box{
+    width:350px;
+    height:300px;
+    background:linear-gradient(to bottom,#B33AF0,#964EE5,#D657FF);
+    padding:5px;
+    box-sizing:border-box;
+    color:white;
+    text-shadow:1px 0 2px black;
+    position:relative;
+    border-radius:10px;
+    margin-top:10%;
+    margin-left:5%;
+    overflow:hidden;
+}
+.shutter{
+    transition:0.5s ease all;
+    width:inherit;
+    height:inherit;
+    position:absolute;
+    box-sizing:border-box;
+    top:0;
+    left:0;
+    margin:0;
+    background:linear-gradient(to bottom,rgba(0,0,0,0.95),rgba(0,0,0,0.86),rgba(0,0,0,0.81));
+    border-radius:10px;
+    padding:50px;
+    color:white;
+    text-wrap:suppress;
+    text-align:center;
+    overflow:hidden;
+}
+#innerText{
+    transition:0.5s ease all;
+    display:block;
+    width:inherit;
+    height:inherit;
+    box-sizing:border-box;
+    text-shadow:0 0 2px black;
+    top:0;
+    left:0;
+    margin:0;
+    background:transparent;
+    border-radius:10px;
+    padding:10px 50px 10px 50px;
+    font-size:24px;
+    color:black;
+    font-family:arial;
+    text-wrap:suppress;
+    text-align:center;
+}
+.shutter:hover{
+    cursor:pointer;
+}
+.text1{
+    display:block;
+    font-size:24px;
+    font-family:arial;
+    text-shadow:0 1px 1px #B1B1B1;
+    line-height:1.8em;
+}
+.text2{
+    transition:0.5s ease all;
+    display:block;
+    position:absolute;
+    bottom:-100px;
+    left:23%;
+    opacity:0;
+    transform:scale(0);
+}
+.shutter:hover .text1{
+    animation:zoomOut 2s ease-in 1 0s;
+    animation-fill-mode:forwards;    
+}
+.shutter:hover .text2{
+    transition:2s ease all;
+    opacity:1;
+    bottom:120px;
+    transform:scale(1);
+    animation:hinge 2s ease-in 1 3s;
+    animation-fill-mode:forwards;    
+}
+#inputBox{
+    transition:0.5s ease all;
+    background:rgba(0,0,0,0.5);
+    padding:5px;
+    color:white;
+    position:absolute;
+    height:auto;
+    width:100%;
+    left:0;
+    box-sizing:border-box;
+    top:500px;
+}
+#inputBox input[type='text']{
+    transition:0.5s ease all;
+    background:rgba(250,250,250,0.5);
+    padding:10px;
+    border:none;
+    box-shadow:1px 1px 2px #333333;
+    color:black;
+    height:auto;
+    width:250px;
+    margin:0 10px 0 10px;
+    font-family:arial;
+    font-size:18px;
+}
+#inputBox button[name='btn_name']{
+    transition:0.5s ease all;
+    background:#2C72DD;
+    padding:8px;
+    border:none;
+    color:white;
+    font-family:arial;
+    font-size:18px;
+}
+#inputBox button[name='btn_name']:hover{
+    transition:0.5s ease all;
+    background:#ffffff;
+    color:black;
+    cursor:pointer;
+}
+#inputBox input[type='text']:focus{
+    transition:0.5s ease all;
+    background:rgba(250,250,250,1);
+}
+#writex{
+    transition:0.5s ease-in all;
+    position:absolute;
+    width:100%;
+    opacity:0;
+    transform:scale(0);
+    letter-spacing:1px;
+    top:400px;
+    font-size:24px;
+    text-align:center;
+}
+#subtext{
+    font-size:28px;
+    color:rgba(54,100,225,1.00);
+}

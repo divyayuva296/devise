@@ -1,73 +1,4 @@
-<h1>Welcome</h1>
-<%= current_user.email %><br>
-<%= current_user.username %><br>
-<%= link_to 'post', posts_path %><br>
-<%= image_tag(current_user.avatar_url) if current_user.avatar?  %><br >
-
-<!-- bootstrap forms -->
-
-<div class = "form">
-	<form class="form-horizontal" action="/action_page.php">
-  		<div class="form-group">
-    		<label class="control-label col-sm-2" for="email">Email:</label>
-    		<div class="col-sm-10">
-      			<input type="email" class="form-control" id="email" placeholder="Enter email">
-    		</div>
-  		</div>
-  		<div class="form-group">
-    		<label class="control-label col-sm-2" for="pwd">Password:</label>
-    		<div class="col-sm-10">
-      			<input type="password" class="form-control" id="pwd" placeholder="Enter password">
-    		</div>
-  		</div>
-  		<div class="form-group">
-    		<div class="col-sm-offset-2 col-sm-10">
-      			<div class="checkbox">
-        			<label><input type="checkbox"> Remember me</label>
-      			</div>
-    		</div>
-  		</div>
-  		<div class="form-group">
-    		<div class="col-sm-offset-2 col-sm-10">
-      			<button type="submit" class="btn btn-default">Submit</button>
-    		</div>
-  		</div>
-	</form>
-
-</div>
-
-<!-- magic box -->
-
-<!DOCTYPE html>
-	<html lang="en">
-		<head>
-    		<meta charset="utf-8">
-        	<title>Magic Box</title>
-        	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    </head>
-
-    <body>
-      <div class="m-box" id="m-box">
-        <div id="writex">
-          Hi <span id="subtext"> </span><br/>Abracadababra...!!If you liked the Animation then.<br/><font color="#E9A138">Please</font><br><font color="black">LIKE IT...</font>
-        </div>
-        <nav id="inputBox">
-          <table cellpadding="0" cellspacing="0">
-            <tr><td>
-              <input type="text" name="name" id="name" placeholder="Your Name" />
-            </td>
-            <td><button name="btn_name" onclick="printName()">GO</button></td>
-          </table>
-        </nav>
-        <nav id="innerText"></nav>
-          <nav class="shutter" id="shutter" onclick="openShutter()">
-            <span class="text1">Please<br/>Hover Me To Play</span>
-              <span class="text2"><font size="+3" color="#DF8540">Hi</font><br/><font size="+2">I am Magic box..<br/>Wanna Play with me<br/></font><font size="+1" color="#1C71F4">Then please click me</font></span>
-          </nav>
-      </div>
-    </body>
-<%#= javascript_pack_tag 'welcome' %>
-<script type="text/javascript">
+// <script type="text/javascript">
   var n=1,x=0,c=0;
     var z=[],k=[];
     var colors=[];
@@ -150,6 +81,4 @@
         shutter.style.animationFillMode="forwards";
         setTimeout('player()',2000);
     }
-</script>
-
-</html>
+// </script>

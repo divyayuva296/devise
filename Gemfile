@@ -72,3 +72,4 @@ gem 'mini_magick', '~> 4.10', '>= 4.10.1'
 gem 'paperclip', '~> 6.1'
 #drag and drop
 gem 'dropzonejs-rails'
+gem 'bootstrap', '~> 4.5', '>= 4.5.2'
